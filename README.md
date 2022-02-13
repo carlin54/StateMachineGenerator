@@ -7,15 +7,15 @@ This script converts libero state machine files into state machine diagrams.
 This script can be run on Python 3.7+ and requires the package GraphViz
 
 # Manual
-&emsp;-h, --help<br />
+&emsp;<b>-h, --help</b><br />
 &emsp;&emsp;displays this text, then exits.<br />
-&emsp;-i, --input-file<br />
+&emsp;<b>-i, --input-file</b><br />
 &emsp;&emsp;the input libero state machine file to generate. A diagram and a dot file will be generated from the input file.<br />
-&emsp;-o, --output-file<br />
+&emsp;<b>-o, --output-file</b><br />
 &emsp;&emsp;the directory to output the dot and png files.<br />
-&emsp;-n, --name<br />
+&emsp;<b>-n, --name</b><br />
 &emsp;&emsp;sets the name for the output dot and png files.<br />
-&emsp;-d, --dpi<br />
+&emsp;<b>-d, --dpi</b><br />
 &emsp;&emsp;sets the dpi parameter for the generated image.<br />
 
 # Example
@@ -102,10 +102,10 @@ Defaults:
           + Reject-Operation
 ```
 
-## Generated State Machine Diagram
+## Generated Control.png
 ![state_machine_diagram](https://raw.githubusercontent.com/carlin54/StateMachineGenerator/main/examples/control/control.png?token=GHSAT0AAAAAABROB2WOQJ3GRFDZT7Z6MVSAYQIWMNQ)
 
-## Generated Dot 
+## Generated Control.gv
 ```dot
 digraph finite_state_machine {
   rankdir=LR;
