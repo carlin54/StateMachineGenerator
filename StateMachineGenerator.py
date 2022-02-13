@@ -225,7 +225,7 @@ def main():
         name = os.path.splitext(name)[0]
     
     if dpi is None:
-        dpi = "500"
+        dpi = "200"
     
     if not dpi.isnumeric():
         print("Error: dpi is not numeric.")
