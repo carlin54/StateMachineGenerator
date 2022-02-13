@@ -1,0 +1,35 @@
+digraph finite_state_machine {
+rankdir=LR;
+graph [ dpi = 700 ];
+size="24,24";
+node [shape = circle, label="After Init"] "After Init_State";
+node [shape = circle, label="Parent Message"] "Parent Message_State";
+node [shape = circle, label="Have Input"] "Have Input_State";
+node [shape = circle, label="Defaults"] "Defaults_State";
+node [shape = box, label="From Parent"] "From Parent_Event";
+node [shape = box, label="Error"] "Error_Event";
+node [shape = box, label="Disconnect"] "Disconnect_Event";
+node [shape = box, label="Time To Logon"] "Time To Logon_Event";
+node [shape = box, label="Parent Error"] "Parent Error_Event";
+node [shape = box, label="Ok"] "Ok_Event";
+node [shape = box, label="Soft Error"] "Soft Error_Event";
+node [shape = box, label="Timeout"] "Timeout_Event";
+edge [dir="forward"] "After Init_State" -> "Ok_Event";
+edge [dir="forward"] "Ok_Event" -> "Have Input_State";
+edge [dir="both"] "After Init_State" -> "Error_Event";
+edge [dir="forward"] "Have Input_State" -> "From Parent_Event";
+edge [dir="forward"] "From Parent_Event" -> "Parent Message_State";
+edge [dir="both"] "Have Input_State" -> "Timeout_Event";
+edge [dir="both"] "Have Input_State" -> "Time To Logon_Event";
+edge [dir="forward"] "Parent Message_State" -> "Ok_Event";
+edge [dir="forward"] "Ok_Event" -> "Have Input_State";
+edge [dir="forward"] "Parent Message_State" -> "Disconnect_Event";
+edge [dir="forward"] "Disconnect_Event" -> "Have Input_State";
+edge [dir="forward"] "Defaults_State" -> "Soft Error_Event";
+edge [dir="forward"] "Soft Error_Event" -> "Have Input_State";
+edge [dir="both"] "Defaults_State" -> "Error_Event";
+edge [dir="forward"] "Defaults_State" -> "Parent Error_Event";
+edge [dir="forward"] "Parent Error_Event" -> "Have Input_State";
+labelloc="t";
+label="cli101d State Machine Diagram - Generated on 2022-02-12 22:17:44";
+}
