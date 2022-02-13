@@ -11,6 +11,10 @@ verbose = False
 replace_val = " "
 
 
+def is_parameter(line):
+    return line.startswith('-')
+
+
 def is_comment(line):
     all = re.findall(r"!.*", line)
     return len(all) != 0
@@ -75,6 +79,10 @@ def generate_state_machine(name, input_file, output_dir, dpi):
     set_super_states = set()
     current_state = None
     for line in state_machine_file:
+        
+        if is_parameter(line):
+            continue
+
         if is_comment(line):
             continue
 
