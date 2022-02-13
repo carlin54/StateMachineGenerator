@@ -1,5 +1,7 @@
 # StateMachineGenerator
-This script converts libero state machine files into state machine diagrams.
+It can be hard to understand complex libero state machines from simple text files. This script takes libero state machine files and generates a dot file and renders a state machine diagram.
+
+![tcpip](https://github.com/carlin54/StateMachineGenerator/blob/main/examples/tcpip/cli101d.png)
 
 ## What is Libero?
 Libero is a state machine code generation tool from iMatix Corporation which can generate code in multiple languages (from a template). It was originally released in 1991, and updated throughout the 1990s. The functionality was later incorporated into other iMatix products, including iMatix Studio.
@@ -7,17 +9,20 @@ Libero is a state machine code generation tool from iMatix Corporation which can
 See further here: https://github.com/imatix-legacy/libero
 
 # Dependencies
-This script was run using Python 3.9, and requires the graphvis package
-
-$ pip instasll graphviz
+This script was created using Python 3.9 and requires the [graphviz](https://gitlab.com/graphviz/graphviz) package.
+```bash
+$ pip3 install graphviz
+```
 
 # GNU General Public License v3.0
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
 
+See full licence [here](https://raw.githubusercontent.com/carlin54/StateMachineGenerator/main/LICENSE?token=GHSAT0AAAAAABROB2WPEPH7ALYWZ7CJRM5EYQIXWRA).
+
 # Example
-
-$ StateMachineGenerator.py --i control.l
-
+```bash
+$ StateMachineGenerator.py -i /path/to/control.l
+```
 
 ### Control.l
 ```
@@ -99,8 +104,7 @@ Defaults:
 ```
 
 ### Generated Control.png
-![state_machine_diagram](https://raw.githubusercontent.com/carlin54/StateMachineGenerator/main/examples/control/control.png?token=GHSAT0AAAAAABROB2WOQJ3GRFDZT7Z6MVSAYQIWMNQ)
-
+![control](https://github.com/carlin54/StateMachineGenerator/blob/main/examples/control/control.png)
 ### Generated Control.gv
 ```dot
 digraph finite_state_machine {
@@ -157,8 +161,6 @@ digraph finite_state_machine {
 }
 
 ```
-
-
 
 # Manual
 &emsp;<b>-h, --help</b><br />
