@@ -1,18 +1,25 @@
 # StateMachineGenerator
 This script converts libero state machine files into state machine diagrams.
 
+## What is Libero?
+Libero is a state machine code generation tool from iMatix Corporation which can generate code in multiple languages (from a template). It was originally released in 1991, and updated throughout the 1990s. The functionality was later incorporated into other iMatix products, including iMatix Studio.
 
+See further here: https://github.com/imatix-legacy/libero
 
 # Dependencies
-This script can be run on Python 3.7+ and requires the package GraphViz
+This script was run using Python 3.9, and requires the graphvis package
 
+$ pip instasll graphviz
+
+# GNU General Public License v3.0
+Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
 
 # Example
 
 $ StateMachineGenerator.py --i control.l
 
 
-## Control.l
+### Control.l
 ```
 !
 !   control.l   Dialog description for the monitor script
@@ -91,10 +98,10 @@ Defaults:
           + Reject-Operation
 ```
 
-## Generated Control.png
+### Generated Control.png
 ![state_machine_diagram](https://raw.githubusercontent.com/carlin54/StateMachineGenerator/main/examples/control/control.png?token=GHSAT0AAAAAABROB2WOQJ3GRFDZT7Z6MVSAYQIWMNQ)
 
-## Generated Control.gv
+### Generated Control.gv
 ```dot
 digraph finite_state_machine {
   rankdir=LR;
@@ -151,12 +158,6 @@ digraph finite_state_machine {
 
 ```
 
-
-
-# Libero
-https://github.com/imatix-legacy/libero
-
-# License 
 
 
 # Manual
