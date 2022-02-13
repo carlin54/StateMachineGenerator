@@ -164,7 +164,7 @@ def usage():
     print("-n, --name")
     print("\tsets the name for the output dot and png files.")
     print("-d, --dpi")
-    print("\tsets the dpi parameter for the generated image. Larger state machines may require a larger dpi.")
+    print("\tsets the dpi parameter for the generated image.")
 
 def main():
     argv = sys.argv
@@ -225,7 +225,7 @@ def main():
         name = os.path.splitext(name)[0]
     
     if dpi is None:
-        dpi = "700"
+        dpi = "500"
     
     if not dpi.isnumeric():
         print("Error: dpi is not numeric.")
