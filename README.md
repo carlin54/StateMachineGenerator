@@ -6,17 +6,6 @@ This script converts libero state machine files into state machine diagrams.
 # Dependencies
 This script can be run on Python 3.7+ and requires the package GraphViz
 
-# Manual
-&emsp;<b>-h, --help</b><br />
-&emsp;&emsp;displays this text, then exits.<br />
-&emsp;<b>-i, --input-file</b><br />
-&emsp;&emsp;the input libero state machine file to generate. A diagram and a dot file will be generated from the input file.<br />
-&emsp;<b>-o, --output-file</b><br />
-&emsp;&emsp;the directory to output the dot and png files.<br />
-&emsp;<b>-n, --name</b><br />
-&emsp;&emsp;sets the name for the output dot and png files.<br />
-&emsp;<b>-d, --dpi</b><br />
-&emsp;&emsp;sets the dpi parameter for the generated image.<br />
 
 # Example
 
@@ -162,8 +151,22 @@ digraph finite_state_machine {
 
 ```
 
+
+
 # Libero
 https://github.com/imatix-legacy/libero
 
 # License 
 
+
+# Manual
+&emsp;<b>-h, --help</b><br />
+&emsp;&emsp;displays this text, then exits.<br />
+&emsp;<b>-i, --input-file</b><br />
+&emsp;&emsp;the input libero state machine file to generate. A diagram and a dot file will be generated from the input file.<br />
+&emsp;<b>-o, --output-file</b><br />
+&emsp;&emsp;the directory to output the dot and png files.<br />
+&emsp;<b>-n, --name</b><br />
+&emsp;&emsp;sets the name for the output dot and png files.<br />
+&emsp;<b>-d, --dpi</b><br />
+&emsp;&emsp;sets the dpi parameter for the generated image.<br />
