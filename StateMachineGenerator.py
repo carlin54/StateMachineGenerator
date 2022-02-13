@@ -64,7 +64,7 @@ def parse_event(current_state, line):
     return current_state, event, next_state
 
 
-def generate_state_machine(name, file, output_directory):
+def generate_state_machine(name, file, output_file):
     sm_file = open(file, "r")
 
     dict_states_to_events = dict()
@@ -154,7 +154,7 @@ def generate_state_machine(name, file, output_directory):
     graph += "\nlabel=\"" + name + " State Machine Diagram - Generated on " + str(now)[0:19] + "\";"
     graph += "\n}"
 
-    filename = output_directory + name + ".gv"
+    filename = output_file + name + ".gv"
     if verbose:
         print("Writing to: " + filename)
     s = Source(graph, filename=filename, format="png")
@@ -165,28 +165,29 @@ def main(argv):
     argv = sys.argv
     global verbose
     verbose = True
-    input_directory = None
-    output_directory = None
+    input_file = None
+    output_file = None
     try:
-        opts, args = getopt.getopt(argv[1:],"i:o:",["ifolder=","ofolder="])
+        opts, args = getopt.getopt(argv[1:],"i:o:",["input-file=","output-file="])
     except getopt.GetoptError:
-        print('GenerateStateMachineDiagram.py -i <input folder> -o <output folder>')
+        print('GenerateStateMachineDiagram.py -i <input file> -o <output file>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('GenerateStateMachineDiagram.py -i <input folder> -o <output folder>')
+            print('GenerateStateMachineDiagram.py -i <input file> -o <output file>')
             sys.exit()
-        elif opt in ("-i", "--ifolder"):
-            input_directory = arg
-        elif opt in ("-o", "--ofolder"):
-            output_directory = arg
+        elif opt in ("-i", "--input-file"):
+            input_file = arg
+        elif opt in ("-o", "--output-file"):
+            output_file = arg
 
-    input_directory = input_directory if input_directory[len(input_directory)-1] == "/" else input_directory + "/"
-    output_directory = output_directory if output_directory[len(output_directory) - 1] == "/" else output_directory + "/"
-    print('Input directory is ', input_directory)
-    print('Output directory is ', output_directory)
+    input_file = input_file if input_file[len(input_file)-1] == "/" else input_file + "/"
+    output_file = output_file if output_file[len(output_file) - 1] == "/" else output_file + "/"
+    print('Input directory is ', input_file)
+    print('Output directory is ', output_file)
+    os.path.isfile(
 
-    for root, directories, files in os.walk(input_directory, topdown=False):
+    for root, directories, files in os.walk(input_file, topdown=False):
 
         if "state.m" in files:
             # root = root.replace("\\" , "/")
@@ -195,7 +196,7 @@ def main(argv):
             sm_file = root + "/" + "state.m"
             if verbose:
                 print("Generating graph for " + sm_name + " state using " + sm_file + " as source.")
-            generate_state_machine(sm_name, sm_file, output_directory)
+            generate_state_machine(sm_name, sm_file, output_file)
 
 
 
