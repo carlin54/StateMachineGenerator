@@ -1,4 +1,4 @@
-# StateMachineGenerator
+# State Machine Generator
 It can be hard to understand complex libero state machines from simple text files. This script takes libero state machine files and generates a dot file and renders a state machine diagram.
 
 ![tcpip](https://github.com/carlin54/StateMachineGenerator/blob/main/examples/tcpip/cli101d.png)
